@@ -176,10 +176,10 @@ function Draw_Window()
 	local counter
 	my_window = ThemedBasicWindow(
 	WINDOW_ID,
-	200,
-	350,
-	200,
-	350,
+	365,
+	355,
+	365,
+	355,
 	"Mentor Weekend Lessons",
 	"center",
 	false)
@@ -196,7 +196,9 @@ function Draw_Window()
 		function(flags, button_id) end,
 		Dina,
 		1,
-		1
+		1,
+		80,
+		20
 		)
 		my_window:add_3d_text_button(
 		"ResetButton"..i,
@@ -209,12 +211,14 @@ function Draw_Window()
 		function(flags, button_id) end,
 		Dina,
 		1,
-		1
+		1,
+		80,
+		20
 		)
 	end
 	my_window:add_3d_text_button(
 	"ProTipButton",
-	my_window.bodyleft + 10,
+	my_window.bodyleft + 5,
 	my_window.bodytop + ((counter+1) * 30) - 25,
 	"Protip",
 	false,
@@ -223,11 +227,13 @@ function Draw_Window()
 	function(flags, button_id) end,
 	Dina,
 	1,
-	1
+	1,
+	80,
+	20
 	)
 	my_window:add_3d_text_button(
 	"ResetProTipButton",
-	my_window.bodyleft + 110,
+	my_window.bodyleft + 90,
 	my_window.bodytop + ((counter+1) * 30) - 25,
 	"Reset",
 	false,
@@ -236,7 +242,72 @@ function Draw_Window()
 	function(flags, button_id) end,
 	Dina,
 	1,
-	1
+	1,
+	80,
+	20
+	)
+	for i, texts in ipairs(SHLessons) do
+		counter = i
+		my_window:add_3d_text_button(
+		"LessonButton"..i,
+		my_window.bodyleft + 185,
+		my_window.bodytop + (i * 30) - 25,
+		"SHLesson "..i,
+		false,
+		nil,
+		function(flags, button_id) Output_SHLesson(nil, nil, {i}) end,
+		function(flags, button_id) end,
+		Dina,
+		1,
+		1,
+		85,
+		20
+		)
+		my_window:add_3d_text_button(
+		"ResetButton"..i,
+		my_window.bodyleft + 185 + 95,
+		my_window.bodytop + (i * 30) - 25,
+		"Reset "..i,
+		false,
+		nil,
+		function(flags, button_id) Reset_SHLesson(nil, nil, {i}) end,
+		function(flags, button_id) end,
+		Dina,
+		1,
+		1,
+		75,
+		20
+		)
+	end
+	my_window:add_3d_text_button(
+	"ProTipButton",
+	my_window.bodyleft + 185,
+	my_window.bodytop + ((counter+1) * 30) - 25,
+	"Etiquette",
+	false,
+	nil,
+	function(flags, button_id) Output_Etiquette() end,
+	function(flags, button_id) end,
+	Dina,
+	1,
+	1,
+	85,
+	20
+	)
+	my_window:add_3d_text_button(
+	"ResetProTipButton",
+	my_window.bodyleft + 185 + 95,
+	my_window.bodytop + ((counter+1) * 30) - 25,
+	"Reset",
+	false,
+	nil,
+	function(flags, button_id) Reset_Etiquette() end,
+	function(flags, button_id) end,
+	Dina,
+	1,
+	1,
+	75,
+	20
 	)
 
 
@@ -298,7 +369,7 @@ function Output_Etiquette()
 	Execute(Etiquette[ELPos])
 	ELPos = ELPos + 1
 	if ELPos > #Etiquette then
-		PTPos = 1
+		ELPos = 1
 	end
 end
 
