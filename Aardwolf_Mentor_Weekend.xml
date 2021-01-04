@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+<muclient>
+	<plugin
+		name="Aardwolf_Mentor_Weekend"
+		author="Shindo"
+		id="85eff059bda18bbea7981de0"
+		language="Lua"
+		purpose="Miniwindow for the Mentor Weekend on 8-10 January 2021"
+		save_state="y"
+		date_written="2021-01-02"
+		requires="5.07"
+		version="0.1"
+		>
+		<description trim="y">
+			<![CDATA[
+			Miniwindow for the Mentor weekend. Includes aliases to 
+			run lessons as well as a set of buttons in a miniwondow
+			for those who don't want to type.
+			Commands:
+			Protip:
+			RT - reset protips
+			OT - output protip
+			RL [num] - reset lesson [num]
+			OL [num] - output lesson [num]		
+			]]>
+		</description>
+	</plugin>
+
+<!--  Get our standard constants -->
+
+<include name="constants.lua"/>
+<!--  Triggers  -->
+<triggers/>
+<!--  Aliases   -->
+<aliases>
+	<alias
+		script="Reset_Protip"
+		match="^RT$"
+		enabled="y"
+		regexp="y"
+		send_to="12"
+		sequence="100"
+		>
+	</alias>
+	<alias
+		script="Output_Protip"
+		match="^OT$"
+		enabled="y"
+		regexp="y"
+		send_to="12"
+		sequence="100"
+		>
+	</alias>
+	<alias
+		script="Reset_Lesson"
+		match="^RL (.*)$"
+		enabled="y"
+		regexp="y"
+		send_to="12"
+		sequence="100"
+		>
+	</alias>
+	<alias
+		script="Output_Lesson"
+		match="^OL (.*)$"
+		enabled="y"
+		regexp="y"
+		send_to="12"
+		sequence="100"
+		>
+	</alias>
+</aliases>
+<!--  Timers    -->
+<timers/>
+<!--  Script  -->
+<script>
+	<![CDATA[
+	dofile (GetPluginInfo (GetPluginID(), 20) ..  "Aardwolf_Mentor_Weekend.lua")
+	]]>
+</script>
+</muclient>
