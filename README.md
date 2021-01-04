@@ -12,3 +12,4 @@ OS <num> - Ouput Superhero Lesson <num>
 RS <num> - Rest Superhero Lesson <num>  
 +--------------------------------------------+  
 
+This plugin is still a work in progress. The Superhero lessons will be added as soon as possible.
