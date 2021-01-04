@@ -1,5 +1,8 @@
 require "themed_miniwindows"
+require "aard_lua_extras"
 
+local requiredVersion = 2148
+local _, version, _ = aard_lua_extras.PackageVersionExtended()
 local WINDOW_ID = GetPluginID()
 local LPos = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
 local PTPos = 1
@@ -221,7 +224,27 @@ function Reset_Protip()
 	PTPos = 1
 end
 
+function MW_Help()
+	Note("List of commands for the Mentor Weekend Plugin")
+	Note("+--------------------------------------------+")
+	Note("MW help  - This help file")
+	Note("OL <num> - Output Lesson <num>")
+	Note("RL <num> - Reset Lesson <num>")
+	Note("OT       - Output Protip")
+	Note("RT       - Reset Protip")
+	Note("OS <num> - Ouput Superhero Lesson <num>")
+	Note("RS <num> - Rest Superhero Lesson <num>")
+	Note("+--------------------------------------------+")
+end
+
 function OnPluginInstall()
-	Draw_Window()
+	Note("You are using r"..version.." of Mushclient")
+	if tonumber(version) >= requiredVersion then
+		Draw_Window()
+		Note("Basic Themed Miniwindow created")
+	else
+		Note("Your version of Mushclient is to old to use the miniwindow but the aliases are still available")
+	end
+	MW_Help()
 end
 

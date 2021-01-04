@@ -70,6 +70,15 @@
 		sequence="100"
 		>
 	</alias>
+	<alias
+		script="MW_Help"
+		match="^MW help$"
+		enabled="y"
+		regexp="y"
+		send_to="12"
+		sequence="100"
+		>
+	</alias>
 </aliases>
 <!--  Timers    -->
 <timers/>
