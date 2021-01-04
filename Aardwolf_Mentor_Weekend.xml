@@ -35,6 +35,24 @@
 <!--  Aliases   -->
 <aliases>
 	<alias
+		script="Reset_Etiquette"
+		match="^RE$"
+		enabled="y"
+		regexp="y"
+		send_to="12"
+		sequence="100"
+		>
+	</alias>
+	<alias
+		script="Output_Etiquette"
+		match="^OE$"
+		enabled="y"
+		regexp="y"
+		send_to="12"
+		sequence="100"
+		>
+	</alias>
+	<alias
 		script="Reset_Protip"
 		match="^RT$"
 		enabled="y"
