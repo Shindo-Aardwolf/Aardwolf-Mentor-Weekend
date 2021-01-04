@@ -1,7 +1,7 @@
 require "themed_miniwindows"
 require "aard_lua_extras"
 
-local requiredVersion = 2148
+local requiredVersion = 2118
 local _, version, _ = aard_lua_extras.PackageVersionExtended()
 local WINDOW_ID = GetPluginID()
 local LPos = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
@@ -117,17 +117,17 @@ local Etiquette =
 {
 	" gt Hi Everyone! We're going to go over some information on how to actively participate in leveling/pupping groups. Some of this may be familiar, and some may be new to you. Let me know if you have any questions. Here are some things to consider when participating in a group:",
 	"gt Keeping yourselves, and your tank/leader healed is important. A tank is the group member who will be leading the group and initiating combat. They take the most damage and engage most frequently so we’re all going to help out with healing them.",
-	"gt If you haven't already restocked potions, go ahead and do that now. You can find some heal/mana potions using the ‘potsearch command’ if you don’t already have a favorite place to buy from. Consider making a macro/alias to quaff potions so that you can keep them in a bag to keep weight down, and get them out/quaff/eat in a single keystroke.",
+	"gt If you haven't already restocked potions, go ahead and do that now. You can find some heal/mana potions using the 'potsearch command' if you don't already have a favorite place to buy from. Consider making a macro/alias to quaff potions so that you can keep them in a bag to keep weight down, and get them out/quaff/eat in a single keystroke.",
 	"gt Please go practice party heal or incomplete heal if you have it available and cast accordingly as we go. You can monitor your tank/leaders health in the group tab if you use MUSH. Don't worry if you don't have these spells.",
-	"gt If you need to leave this group for any reason, please let us know and recall out using word of recall/recall/home. Come back once you are able to give the group your full attention. As per help Policies7, being *AFK* (Away From Keyboard) in an active group is considered -botting- as your character would be gaining experience while you are not actively engaged at the keyboard. Don’t do that. Just take a break and come back when you can.",
-	"gt If you are having trouble spelling up between rooms because your tank/leader is moving too quickly or you don't have enough time for your spells to recite, you can toggle ‘autoass’ to respell. Toggle it back after to continue attacking! You can also retreat out of the room and then rejoin the group if you prefer.",
+	"gt If you need to leave this group for any reason, please let us know and recall out using word of recall/recall/home. Come back once you are able to give the group your full attention. As per help Policies7, being *AFK* (Away From Keyboard) in an active group is considered -botting- as your character would be gaining experience while you are not actively engaged at the keyboard. Don't do that. Just take a break and come back when you can.",
+	"gt If you are having trouble spelling up between rooms because your tank/leader is moving too quickly or you don't have enough time for your spells to recite, you can toggle 'autoass' to respell. Toggle it back after to continue attacking! You can also retreat out of the room and then rejoin the group if you prefer.",
 	"gt If you use Mush, there are spellup plugins available which can help by waiting until you are no longer in battle before automatically recasting your spells that are worth considering and/or installing.",
-	"gt We will stop regularly to quest, change gear and to train/prac, so feel free to leave the group to quest as needed, or if our timers sync up we can go as a team. We may take some breaks, and if you want to keep leveling there may be another group in range for you to join. You can use the ‘who from mentor’ command all day to find Mentor’s willing to lead/teach lessons. Tell your Boot & UnClanned friends! :)",
-	"gt If we do all quest at the same time, be mindful that we might get mobs in the same areas, so watch what you kill so we don't accidentally steal other peoples' kills. If you join a GQ with a group member, it is advisable to turn ‘autoassist’ off and toggle ‘nofollow’ so you don't accidentally snatch 3qps from each other or wind up dragging each other in the wrong direction.",
-	"gt It's always good to make sure you have ‘autoshare’ on, so that everyone gets an equal cut of the gold. Also, please keep frequent reporting triggers off gtell so you don't robot spam your buddies/us!",
+	"gt We will stop regularly to quest, change gear and to train/prac, so feel free to leave the group to quest as needed, or if our timers sync up we can go as a team. We may take some breaks, and if you want to keep leveling there may be another group in range for you to join. You can use the 'who from mentor' command all day to find Mentor’s willing to lead/teach lessons. Tell your Boot & UnClanned friends! :)",
+	"gt If we do all quest at the same time, be mindful that we might get mobs in the same areas, so watch what you kill so we don't accidentally steal other peoples' kills. If you join a GQ with a group member, it is advisable to turn 'autoassist' off and toggle 'nofollow' so you don't accidentally snatch 3qps from each other or wind up dragging each other in the wrong direction.",
+	"gt It's always good to make sure you have 'autoshare' on, so that everyone gets an equal cut of the gold. Also, please keep frequent reporting triggers off gtell so you don't robot spam your buddies/us!",
 	"gt Some useful commands to practice for easier grouping if they are available to you: fly/levitation/having a boat or raft in your inventory, rescue, retreat, aim, warhorse/dustdevil/adopting a pet, word of recall, door/gate, party heal, incomplete heal, dampening field/dispel magic, raven scourge, green death, rainbow, hydra blood, ego whip, soften or class specific ones!",
 	"gt I'm going to give everyone time to go practice any of those skills/spells as necessary and to grab potions/restock.",
-	"[Give them some time to practice/restock and tell them all to wait at recall and once they're all there you'll start the first lesson. Stop to train stats/practice new skills every 5 levels or so."
+	"echo [Give them some time to practice/restock and tell them all to wait at recall and once they're all there you'll start the first lesson. Stop to train stats/practice new skills every 5 levels or so.]"
 }
 
 
@@ -264,8 +264,8 @@ function MW_Help()
 	Note("RL <num> - Reset Lesson <num>")
 	Note("OT       - Output Protip")
 	Note("RT       - Reset Protip")
-	Note("OE <num> - Ouput Etiquette Lesson <num>")
-	Note("RE <num> - Rest Etiquette Lesson <num>")
+	Note("OE       - Ouput Etiquette Lesson")
+	Note("RE       - Rest Etiquette Lesson")
 	Note("OS <num> - Ouput Superhero Lesson <num>")
 	Note("RS <num> - Rest Superhero Lesson <num>")
 	Note("+--------------------------------------------+")
