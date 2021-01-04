@@ -5,7 +5,9 @@ local requiredVersion = 2118
 local _, version, _ = aard_lua_extras.PackageVersionExtended()
 local WINDOW_ID = GetPluginID()
 local LPos = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+local SHLPos = {1,1,1,1,1}
 local ELPos, PTPos = 1
+
 local Lessons = { 
 	{ 
 		"gt @x046Lesson 1:$C Mobdeaths command & Mapper Help",
@@ -130,6 +132,45 @@ local Etiquette =
 	"echo [Give them some time to practice/restock and tell them all to wait at recall and once they're all there you'll start the first lesson. Stop to train stats/practice new skills every 5 levels or so.]"
 }
 
+local SHLessons =
+{
+	{
+		"gt Superhero Lesson 1: Maxxing Stats",
+		"gt A generally agreed upon first goal of becoming a Superhero is to max your stats. You do this by participating in pup groups and gaining trains to spend to increase your stats/power. You can check out the ‘help class stats’ or 'help newbie-stats' to learn more about how to train for your primary class. Help 'maxtrains' is another useful help file to consider reading.",
+		"echo [Can encourage conversation about building SH stats/what different profiles might look like for Pclasses in your group.]",
+		"gt Equipment also plays a role in maximizing your potential at Superhero. You may gain up to 200 additional stats from spells and equipment, so finding decent gear and planning your Superhero stats wisely is important. If you type 'stats' you'll get a synopsis of how many stats are added from your gear/spells.",
+		"gt @x208That brings and end to Lesson 1$C"
+	},
+	{
+		"gt Superhero Lesson 2: Using a Shield vs. Dual wielding",
+		"gt If you’re tanking, it can be advantageous to equip a shield, as opposed to dual wielding. When you're participating in a group, often only the tank will be shielded and all of the other members will dual wield when able. An exception to this might be made for areas wherein there are a lot of aggressive mobs and the group may be sharing tank duties. Example: Shadows' End/Icefall/Titans.",
+		"gt Does everyone here have a shield available?",
+		"echo [*Provide The Might of (>Touchstone<) (200)/Jarin's Shields (211) from Prize bag to those who may need. ];echo [**When you run out of shields, send them to Touchstone Open Shop to purchase one/ask on barter for bonus loot shields to be auctioned.]",
+		"gt Remember that valuable weapons can be 'halved/doubled' in weight (costs TP) at the Aylorian Elemental Designs found run 2s5w2n from recall if you're having trouble dual wielding your preferred weapons.",
+		"gt @x208That brings and end to Lesson 2$C"
+	},
+	{
+		"gt Superhero Lesson 3: Incomplete Heal vs. Party Heal",
+		"echo [Skip this lesson if you notice your members are using these heals consistently.]",
+		"gt Unsure of how to best heal your leader/tank? I recommend trying out both the party heal and incomplete heal commands. Clerics get party heal at lvl 79, can be cast in combat or between rounds, requires minimal mana. Whereas psionicists get incomplete heal at lvl 190, it cannot be cast in combat, and it requires more mana.",
+		"gt @x208That brings and end to Lesson 3$C"
+	},
+	{
+		"gt Superhero Lesson 4: Tempering your Weapons/Acquiring Ore",
+		"gt Have any of you ever gotten a weapon tempered or know what it means to temper a weapon? You can 'help temper' if this is a new concept for you.",
+		"gt Obtaining a 'temper' will require a level 201 Blacksmith, an iron or metal weapon, some ore, and running to the forge in Aylor using 'runto forge'. Tempering will yield your weapon a damage increase for a set amount of time, as indicated when you identify the item. The type of ore you use will determine just how good that damage increase is as well as how long it lasts.",
+		"gt There are two goals that reward you with ore, or the ability to farm ore that are worth considering solving/doing. The goals are Silver Volcano and Gnoll's Quarry. Ore can also be found as random drop items on the Dark8 mobs at the top of Nine Hells. There are a number of other types of Epic ore from Superhero Epic Quests.",
+		"gt Some of you might earn some different kinds of ore as prizes if you're extra lucky. Keep an eye on the gametalk channel for Festival Sponsored Games throughout the weekend. :)",
+		" gt Once you have some ore, I suggest asking on barter for a blacksmith to temper it. It is generally a service that you tip for. An appropriate tip is anything between 250k-1M gold.",
+		"gt @x208That brings and end to Lesson 4$C"
+	},
+	{
+		"gt Lesson 5: Leading a Pup Group",
+		"gt When leading a Pup Group here are some general tips: Be attentive to personal/group hp, Call out for party heal/incomplete heals when needed, Call out quest/restock breaks, Alert members to rooms in which manual movement is necessary i.e. Shadows's End/Icefall, and often sets a door mob for easier navigation.",
+		"gt It is beneficial to understand group leader commands when leading a group containing multiple members who may want to rotate leading. 'Help group' covers them all in case those are new commands to you. Anyone feel up to leading for a bit?",
+		"gt @x208That brings and end to Lesson 5$C"
+	}
+}
 
 function Draw_Window()
 	local counter
@@ -146,7 +187,7 @@ function Draw_Window()
 		counter = i
 		my_window:add_3d_text_button(
 		"LessonButton"..i,
-		my_window.bodyleft + 10,
+		my_window.bodyleft + 5,
 		my_window.bodytop + (i * 30) - 25,
 		"Lesson "..i,
 		false,
@@ -159,7 +200,7 @@ function Draw_Window()
 		)
 		my_window:add_3d_text_button(
 		"ResetButton"..i,
-		my_window.bodyleft + 110,
+		my_window.bodyleft + 90,
 		my_window.bodytop + (i * 30) - 25,
 		"Reset "..i,
 		false,
@@ -205,6 +246,29 @@ function Draw_Window()
 	my_window:show()
 
 	my_window:bring_to_front()
+end
+
+function Output_SHLesson (name, line, wildcards)
+	LNum = tonumber(wildcards[1])
+	if LNum <= #SHLessons then
+		Execute(SHLessons[LNum][SHLPos[LNum]])
+		SHLPos[LNum] = SHLPos[LNum] + 1
+		if SHLPos[LNum] > #SHLessons[LNum] then
+			SHLPos[LNum] = 1
+		end
+	else
+		print("somehow we are out of range")
+	end
+end
+
+function Reset_SHLesson (name, line, wildcards)
+	LNum = tonumber(wildcards[1])
+	if LNum <= #SHLessons then
+		Execute("echo @x208Lesson "..LNum.." reset@W")
+		SHLPos[LNum] = 1
+	else
+		print("somehow we are out of range")
+	end
 end
 
 function Output_Lesson (name, line, wildcards)

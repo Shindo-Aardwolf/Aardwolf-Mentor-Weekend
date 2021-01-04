@@ -89,6 +89,24 @@
 		>
 	</alias>
 	<alias
+		script="Reset_SHLesson"
+		match="^RS (.*)$"
+		enabled="y"
+		regexp="y"
+		send_to="12"
+		sequence="100"
+		>
+	</alias>
+	<alias
+		script="Output_SHLesson"
+		match="^OS (.*)$"
+		enabled="y"
+		regexp="y"
+		send_to="12"
+		sequence="100"
+		>
+	</alias>
+	<alias
 		script="MW_Help"
 		match="^MW help$"
 		enabled="y"
