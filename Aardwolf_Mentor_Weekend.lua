@@ -1,4 +1,3 @@
-require "themed_miniwindows"
 require "aard_lua_extras"
 
 local requiredVersion = 2118
@@ -409,6 +408,7 @@ end
 function OnPluginInstall()
 	Note("You are using r"..version.." of Mushclient")
 	if tonumber(version) >= requiredVersion then
+		require "themed_miniwindows"
 		Draw_Window()
 		Note("Basic Themed Miniwindow created")
 	else
