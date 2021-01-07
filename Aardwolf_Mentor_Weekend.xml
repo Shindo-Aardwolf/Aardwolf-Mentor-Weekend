@@ -36,7 +36,7 @@
 <aliases>
 	<alias
 		script="Reset_Etiquette"
-		match="^RE$"
+		match="^[Re][Ee]$"
 		enabled="y"
 		regexp="y"
 		send_to="12"
@@ -45,7 +45,7 @@
 	</alias>
 	<alias
 		script="Output_Etiquette"
-		match="^OE$"
+		match="^[Oo][Ee]$"
 		enabled="y"
 		regexp="y"
 		send_to="12"
@@ -54,7 +54,7 @@
 	</alias>
 	<alias
 		script="Reset_Protip"
-		match="^RT$"
+		match="^[Rr][Pp][Tt]$"
 		enabled="y"
 		regexp="y"
 		send_to="12"
@@ -63,7 +63,7 @@
 	</alias>
 	<alias
 		script="Output_Protip"
-		match="^OT$"
+		match="^[Oo][Pp][Tt]$"
 		enabled="y"
 		regexp="y"
 		send_to="12"
@@ -72,7 +72,7 @@
 	</alias>
 	<alias
 		script="Reset_Lesson"
-		match="^RL (.*)$"
+		match="^[Rr][Ll] (.*)$"
 		enabled="y"
 		regexp="y"
 		send_to="12"
@@ -81,7 +81,7 @@
 	</alias>
 	<alias
 		script="Output_Lesson"
-		match="^OL (.*)$"
+		match="^[Oo][Ll] (.*)$"
 		enabled="y"
 		regexp="y"
 		send_to="12"
@@ -90,7 +90,7 @@
 	</alias>
 	<alias
 		script="Reset_SHLesson"
-		match="^RS (.*)$"
+		match="^[Rr][Ss] (.*)$"
 		enabled="y"
 		regexp="y"
 		send_to="12"
@@ -99,7 +99,25 @@
 	</alias>
 	<alias
 		script="Output_SHLesson"
-		match="^OS (.*)$"
+		match="^[Oo][Ss] (.*)$"
+		enabled="y"
+		regexp="y"
+		send_to="12"
+		sequence="100"
+		>
+	</alias>
+	<alias
+		script="MW_show"
+		match="^[Mm][Ww] show$"
+		enabled="y"
+		regexp="y"
+		send_to="12"
+		sequence="100"
+		>
+	</alias>
+	<alias
+		script="MW_hide"
+		match="^[Mm][Ww] hide$"
 		enabled="y"
 		regexp="y"
 		send_to="12"
@@ -108,7 +126,7 @@
 	</alias>
 	<alias
 		script="MW_Help"
-		match="^MW help$"
+		match="^[Mm][Ww] help$"
 		enabled="y"
 		regexp="y"
 		send_to="12"

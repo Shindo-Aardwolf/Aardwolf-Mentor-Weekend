@@ -391,14 +391,24 @@ function Reset_Protip()
 	PTPos = 1
 end
 
+function MW_show()
+	my_window:show()
+end
+
+function MW_hide()
+	my_window:hide()
+end
+
 function MW_Help()
 	Note("List of commands for the Mentor Weekend Plugin")
 	Note("+--------------------------------------------+")
 	Note("MW help  - This help file")
+	Note("MW show  - Show the miniwindow")
+	Note("MW hide  - Hide the miniwindow")
 	Note("OL <num> - Output Lesson <num>")
 	Note("RL <num> - Reset Lesson <num>")
-	Note("OT       - Output Protip")
-	Note("RT       - Reset Protip")
+	Note("OPT       - Output Protip")
+	Note("RPT       - Reset Protip")
 	Note("OE       - Ouput Etiquette Lesson")
 	Note("RE       - Rest Etiquette Lesson")
 	Note("OS <num> - Ouput Superhero Lesson <num>")
