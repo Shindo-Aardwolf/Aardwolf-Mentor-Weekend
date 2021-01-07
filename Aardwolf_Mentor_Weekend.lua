@@ -5,7 +5,8 @@ local _, version, _ = aard_lua_extras.PackageVersionExtended()
 local WINDOW_ID = GetPluginID()
 local LPos = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
 local SHLPos = {1,1,1,1,1}
-local ELPos, PTPos = 1
+local ELPos = 1
+local PTPos = 1
 
 local Lessons = { 
 	{ 
@@ -100,7 +101,7 @@ local Lessons = {
 
 local ProTips = 
 {
-	"gt @x046Pro-tip #1:$C Here's a quick tip to reduce battle spam. Toggling the @Gbattlespam$C command will hide damage output shown from the other group members. This is a great option for if you play on a small screen or otherwise want to minimize spam. You can also toggle the @Gspamreduce pheal$C command if you are in a large/epic group. Check out ‘help spamreduce’ for a multitude of ways to clean up your screen output.",
+	"gt @x046Pro-tip #1:$C Here's a quick tip to reduce battle spam. Toggling the @Gbattlespam$C command will hide damage output shown from the other group members. This is a great option for if you play on a small screen or otherwise want to minimize spam. You can also toggle the @Gspamreduce pheal$C command if you are in a large/epic group. Check out 'help spamreduce' for a multitude of ways to clean up your screen output.",
 	"gt @x046Pro-tip #2:$C Using the @Gswho 12 area$C command will show you at a glance who is in an area ranked alongside their trained stats. This can be a useful command to macro/alias if you are Hardcore, OPK, or a part of a PK clan.",
 	"gt @x046Pro-tip #3:$C Consider making macros and/or aliases to simplify commands that you use all the time. Ex. Getting potions from a bag/quaffing them, or casting your main attack(s).",
 	"gt @x046Pro-tip #4:$C Using the @Gkeep$C command will prevent you from dropping or accidentally selling any items flagged/marked as kept. There is also an @Gautokeep$C command which automatically keeps items purchased from shopkeepers.",
@@ -248,7 +249,7 @@ function Draw_Window()
 	for i, texts in ipairs(SHLessons) do
 		counter = i
 		my_window:add_3d_text_button(
-		"LessonButton"..i,
+		"SHLessonButton"..i,
 		my_window.bodyleft + 185,
 		my_window.bodytop + (i * 30) - 25,
 		"SHLesson "..i,
@@ -263,7 +264,7 @@ function Draw_Window()
 		20
 		)
 		my_window:add_3d_text_button(
-		"ResetButton"..i,
+		"SHResetButton"..i,
 		my_window.bodyleft + 185 + 95,
 		my_window.bodytop + (i * 30) - 25,
 		"Reset "..i,
@@ -279,7 +280,7 @@ function Draw_Window()
 		)
 	end
 	my_window:add_3d_text_button(
-	"ProTipButton",
+	"EtiquetteButton",
 	my_window.bodyleft + 185,
 	my_window.bodytop + ((counter+1) * 30) - 25,
 	"Etiquette",
@@ -294,7 +295,7 @@ function Draw_Window()
 	20
 	)
 	my_window:add_3d_text_button(
-	"ResetProTipButton",
+	"ResetEtiquetteButton",
 	my_window.bodyleft + 185 + 95,
 	my_window.bodytop + ((counter+1) * 30) - 25,
 	"Reset",
